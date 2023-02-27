@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Description
+App made with nextJS that connnects with OpenAI api, given a topic, the app returns a list of this topic:
+Example:
+Topic -> How to make a paella
+Return -> A list of steps to make a paella
+
 ## Getting Started
 
 First, run the development server:
