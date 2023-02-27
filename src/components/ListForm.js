@@ -13,7 +13,7 @@ export default function ListForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsLoading(true);
-    /*fetch('/api/dummyjson')
+    fetch('/api/dummyjson')
         .then(response => {
           console.log(response.body);
           if (response.ok){
@@ -29,9 +29,9 @@ export default function ListForm() {
           alert(error);
         }).finally(() => {
           setIsLoading(false);
-        })*/
+        })
 
-      fetch ("/api/openai/completions", {
+      /*fetch ("/api/openai/completions", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -49,21 +49,21 @@ export default function ListForm() {
       })
       .finally (() => {
         setIsLoading(false);
-      });
+      });*/
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="topic">Tema de la lista</label>
+      <label htmlFor="topic">Topic</label>
       <input type="text" id="topic" defaultValue="" onChange={handleContentChange} />
       {content === '' && (
-        <input type="submit" value={isLoading ? "Esperando..." : "Crear lista"} disabled={isLoading}/>
+        <input type="submit" value={isLoading ? "Waiting..." : "Build list"} disabled={isLoading}/>
       )}
       {content !== '' && (
         <>
-          <input type="submit" value="Repetir" onClick={handleSubmit} />
-          <input type="submit" value="Empezar" onClick={() => {setContent(""); setTopic('')}}/>
-          <textarea rows="20" defaultValue={content}></textarea>
+          <input type="submit" value={isLoading ? "Waiting..." : "Repeat"} disabled={isLoading} onClick={handleSubmit} />
+          <input type="submit" value="Clear all" onClick={() => {setContent(""); setTopic("")}}/>
+          <textarea rows="20" value={content}></textarea>
         </>
       )}
     </form>

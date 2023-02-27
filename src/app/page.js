@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main>
       <h1>Gime ve a list of...</h1>
-      <p>Genera una lista de tareas de lo que necesites con Inteligencia Artificial</p>
+      <p>Build a steps list of whatever you need...</p>
       <ListForm></ListForm>
     </main>
   )

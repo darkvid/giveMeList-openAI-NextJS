@@ -320,6 +320,7 @@ input[type="submit"] {
     background-color: var(--color-link);
     border: 2px solid var(--color-link);
     color: var(--color-bg);
+    margin-right: .5em;
 }
 
 a em,
