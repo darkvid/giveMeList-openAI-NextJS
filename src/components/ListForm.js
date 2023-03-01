@@ -10,9 +10,7 @@ export default function ListForm() {
     setTopic(event.target.value);
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setIsLoading(true);
+  function fetchDummyJson(){
     fetch('/api/dummyjson')
         .then(response => {
           console.log(response.body);
@@ -29,27 +27,37 @@ export default function ListForm() {
           alert(error);
         }).finally(() => {
           setIsLoading(false);
-        })
+        });
+  }
 
-      /*fetch ("/api/openai/completions", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          topic
-        }) 
-      })
-      .then ((response) => response.json())
-      .then ((json) => setContent(json.text))
-      .catch (error => {
-        setContent("");
-        alert(error);
-      })
-      .finally (() => {
-        setIsLoading(false);
-      });*/
+  function fetchOpenAi(){
+    fetch ("/api/openai/completions", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        topic
+      }) 
+    })
+    .then ((response) => response.json())
+    .then ((json) => setContent(json.text))
+    .catch (error => {
+      setContent("");
+      alert(error);
+    })
+    .finally (() => {
+      setIsLoading(false);
+    });
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setIsLoading(true);
+    
+    fetchDummyJson();
+      
   }
 
   return (

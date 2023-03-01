@@ -1,5 +1,5 @@
 export async function completions (
-    API_KEY,
+    apiKey,
     prompt,
     max_tokens = 5
 ) {
@@ -9,13 +9,13 @@ export async function completions (
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${API_KEY}`,
+                Authorization: `Bearer ${apiKey}`,
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Headers": "Content-Type"
             },
             body: JSON.stringify({
                 model: "text-davinci-003",
-                prompt: `Genera una lista de 5 tareas sobre ${prompt}`,
+                prompt: `Build a list of 5 steps about ${prompt}`,
                 max_tokens: Number(max_tokens)
             })
         });
