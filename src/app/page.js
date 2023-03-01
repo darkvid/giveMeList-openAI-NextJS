@@ -1,6 +1,5 @@
 import ListForm from '@/components/ListForm'
 import { Inter } from '@next/font/google'
-import '../styles/mvp.css'
 
 const inter = Inter({ subsets: ['latin'] })
 

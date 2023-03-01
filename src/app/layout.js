@@ -1,4 +1,5 @@
 //import './globals.css'
+import '../styles/mvp.css'
 
 import NavMenu from "@/components/navMenu";
 
